@@ -9,11 +9,15 @@ inputs:
     description: 'Command'
     required: false
     default: 'ci'
+  version:
+    description: 'Node version'
+    required: false
+    default: 'lts'
 runs:
   using: 'docker'
   image: "docker://winchci/node:latest"
   args:
-    - 'winch ${{ inputs.command }} -f ${{ inputs.filename }}'
+    - '. $NVM_DIR/nvm.sh; nvm install ${{ inputs.version }}; nvm use ${{ inputs.version }}; winch ${{ inputs.command }} -f ${{ inputs.filename }}'
 branding:
   icon: 'anchor'
   color: 'purple'
