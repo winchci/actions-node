@@ -17,7 +17,7 @@ runs:
   using: 'docker'
   image: "docker://winchci/node:latest"
   args:
-    - '. $NVM_DIR/nvm.sh; nvm install ${{ inputs.version }}; nvm use ${{ inputs.version }}; winch ${{ inputs.command }} -f ${{ inputs.filename }}'
+    - '. /root/.nvm/nvm.sh; nvm install ${{ inputs.version }}; nvm use ${{ inputs.version }}; winch ${{ inputs.command }} -f ${{ inputs.filename }}'
 branding:
   icon: 'anchor'
   color: 'purple'
