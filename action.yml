@@ -11,7 +11,7 @@ inputs:
     default: 'ci'
 runs:
   using: 'docker'
-  image: "docker://winchci/node:latest"
+  image: "docker://winchci/node-latest:latest"
   args:
     - 'winch ${{ inputs.command }} -f ${{ inputs.filename }}'
 branding:
