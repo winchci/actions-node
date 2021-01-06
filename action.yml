@@ -12,12 +12,12 @@ inputs:
   version:
     description: 'Node version'
     required: false
-    default: '--lts'
+    default: 'lts'
 runs:
   using: 'docker'
-  image: "docker://winchci/node:latest"
+  image: "docker://winchci/node-${{ inputs.version }}:latest"
   args:
-    - '. /root/.nvm/nvm.sh; nvm install ${{ inputs.version }}; nvm use ${{ inputs.version }}; winch ${{ inputs.command }} -f ${{ inputs.filename }}'
+    - 'winch ${{ inputs.command }} -f ${{ inputs.filename }}'
 branding:
   icon: 'anchor'
   color: 'purple'
