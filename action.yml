@@ -9,13 +9,9 @@ inputs:
     description: 'Command'
     required: false
     default: 'ci'
-  version:
-    description: 'Node version'
-    required: false
-    default: 'lts'
 runs:
   using: 'docker'
-  image: "docker://winchci/node-${{ inputs.version }}:latest"
+  image: "docker://winchci/node:latest"
   args:
     - 'winch ${{ inputs.command }} -f ${{ inputs.filename }}'
 branding:
